@@ -1,0 +1,57 @@
+波动率具有三个重要特性
+
+* **波动率聚集**
+
+众多研究表明，金融时间序列经常出现波动率聚集性现象，方差会随着时间的改变而改变。所谓的“波动率聚集”是指，金融时间序列的高波动率和低波动率往往会各自聚集在某一时间段，而且高波动率和低波动率聚集的时期会交替出现。
+
+* **均值回归**
+
+波动率和其他众多金融指标一样，具有均值回归的特性。其在偏离价值中枢一定时间后，会以很高的概率向价值中枢收敛。
+
+* **市场下跌时波动率迅速上升**
+
+大量投资者不计成本不管好坏大规模集中抛售是一种群体性行为,带有羊群效应,会导致价格骤跌甚至引发崩盘的壮烈场面,其影响超乎人们想象。恐慌性市场出现有多种原因:如国家出台紧缩政策或利空股市政策、突发性重大负面消息、技术面内在因素影响等。在市场发生恐慌时，波动率会快速上升。
+
+**历史波动率统计结果**
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/FULL_SAMPLE.png)
+
+**全样本统计结果**
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/%E5%85%A8%E6%A0%B7%E6%9C%ACpctStd%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C.png)
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/pctStdDist.png)
+
+## 根据统计描述做的波动率建池策略
+
+**策略原则**
+
+**策略建池情况**
+
+第一次建池时间：2021-05-10 09:17:52
+
+第一次撤池时间：2021-05-12 22:59:38
+
+第一次建池期间usdc/eth价值变化情况
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/pos_1_a01.png)
+
+第二次建池时间：2021-07-25 22:57:11
+
+第二次撤池时间：2021-08-05 06:02:11
+
+第二次建池期间usdc/eth价值变化情况
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/pos_2_a01.png)
+
+第三次建池时间：2021-08-05 06:02:24
+
+第三次建池后至回测区间末为止未撤池
+
+第三次建池期间usdc/eth价值变化情况
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/pos_3_a01.png)
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/close.png)
+
+![](https://github.com/PXY11/work_pxy/blob/main/strategy/pic/vol.png)
