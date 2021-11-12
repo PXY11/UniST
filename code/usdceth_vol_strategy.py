@@ -26,7 +26,7 @@ class HoldStrategy(PoolSimiulation):
         upper_tick = upperTick - upperTick % 60
         lower_tick = lowerTick - lowerTick % 60
         return upper_tick, lower_tick
-
+    
 
     def on_time(self, data: dict):
         price = data["price"]
