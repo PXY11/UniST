@@ -19,6 +19,7 @@ class HoldStrategy(PoolSimiulation):
         self.long_pos = False
         self.short_pos = False
         self.day_length = 30
+
     def price_in_range(self, price):
         return self.lower_price < price < self.upper_price
 
@@ -27,7 +28,6 @@ class HoldStrategy(PoolSimiulation):
         lower_tick = lowerTick - lowerTick % 60
         return upper_tick, lower_tick
     
-
     def on_time(self, data: dict):
         price = data["price"]
         ts = data["timestamp"]
