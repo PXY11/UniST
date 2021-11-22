@@ -18,3 +18,4 @@ UDP60 = symbolSigDataAvgUDP.iloc[:,4].copy(deep=True)
 #UDP60.to_csv('../data/symbolsSig/UDP60.csv')
 df_ma = pd.read_csv('../../data/btceth/MA.csv',index_col=0)
 df_ma.dropna(axis=0,inplace=True)
+

@@ -1,0 +1,1 @@
+策略的信号是用VecTool中的脚本\indicator\UniSTGetSignalBTCETH.py生成的
