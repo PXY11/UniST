@@ -7,7 +7,7 @@ import pandas  as pd
 from typing import Dict, Iterable, Tuple, Union, List
 from .contracts.enums import PoolFee
 from collections import namedtuple
-
+import matplotlib.pyplot as plt
 
 V3FACTORY_CREATION_BLOCK = 12369621 
 
@@ -117,8 +117,40 @@ class PositionReport(object):
             balance = self.balance
 
         if draw_plot:
+            plt.figure(figsize=(12,10))
             for name in ["amount0", "cumFee0", "amount1", "cumFee1"]:
-                balance.plot(x=index, y=name)
+                if name == "amount0":
+                    plt.subplot(221)
+                    x = balance['datetime'].tolist()
+                    # x = [str(v)  for v in x]
+                    plt.plot(x,balance[name],label=name)
+                    plt.xticks(rotation = 30)
+                    plt.legend(loc=3)
+                    # balance.plot(x=index, y=name,figsize=(6,4))
+                if name == "cumFee0":
+                    plt.subplot(222)
+                    x = balance['datetime'].tolist()
+                    # x = [str(v)  for v in x]
+                    plt.plot(x,balance[name],label=name)
+                    plt.xticks(rotation = 30)
+                    plt.legend(loc=4)
+                    # balance.plot(x=index, y=name,figsize=(6,4))
+                if name == "amount1":
+                    plt.subplot(223)
+                    x = balance['datetime'].tolist()
+                    # x = [str(v)  for v in x]
+                    plt.plot(x,balance[name],label=name)
+                    plt.xticks(rotation = 30)
+                    plt.legend(loc=3)
+                    # balance.plot(x=index, y=name,figsize=(6,4))
+                if name == "cumFee1":
+                    plt.subplot(224)
+                    x = balance['datetime'].tolist()
+                    # x = [str(v)  for v in x]
+                    plt.plot(x,balance[name],label=name)
+                    plt.xticks(rotation = 30)
+                    plt.legend(loc=4)
+                    # balance.plot(x=index, y=name,figsize=(6,4))
         return balance
 
     def plot_balance(self, index="timestamp", plain=False):
