@@ -19,6 +19,7 @@ class HoldStrategy(PoolSimiulation):
         self.long_pos = False
         self.short_pos = False
         self.day_length = 30
+        self.openPosTimeList = [1622000000]
 
     def price_in_range(self, price):
         return self.lower_price < price < self.upper_price
@@ -37,10 +38,11 @@ class HoldStrategy(PoolSimiulation):
         CloseLowerMA = data['CloseLowerMA']
         VolHigherOvermaQuantile50Twosigma = data['VolHigherOvermaQuantile50Twosigma']
         revoke_pos = data['revoke_pos']
+        openTimeGap = self.timestamp - self.openPosTimeList[-1]
         '''
         建池条件检查
         '''
-        if CloseLowerMA==True and SmaLowerLma==True and VolLowerBelowmaQuantile50==True  and not self.position_id:
+        if CloseLowerMA==True and SmaLowerLma==True and VolLowerBelowmaQuantile50==True and openTimeGap>=43200 and not self.position_id:
         # if CloseLowerMA==1 and SmaLowerLma==1  and not self.position_id:
             self.open_pos_times += 1
             self.short_pos = True
@@ -101,7 +103,7 @@ class HoldStrategy(PoolSimiulation):
                 return
 
 
-        elif CloseLowerMA==False and VolHigherOvermaQuantile50Twosigma==False and not self.position_id:
+        elif CloseLowerMA==False and VolHigherOvermaQuantile50Twosigma==False and openTimeGap>=43200 and not self.position_id:
             self.open_pos_times += 1
             self.long_pos = True
             print(f'**********************【Price Over MA】【创建Long Vol池子】【第{self.open_pos_times}次建池】***********************************')
